@@ -1,0 +1,29 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta http-equiv='Content-Type' content='text/html;charset=UTF-8'/>
+		<link rel="stylesheet" type="text/css" href="css/style.css">		
+		<script type="text/javascript" src="util/Utility.js"></script>
+		<script type="text/javascript" src="util/JOB.js"></script>
+		<script type="text/javascript" src="util/globalvariables.js"></script>
+
+		<script src="resources/sap-ui-core.js"
+				id="sap-ui-bootstrap"
+				data-sap-ui-libs="sap.m,sap.ui.layout,sap.ui.commons"
+				data-sap-ui-theme="sap_bluecrystal">
+		</script>
+		<!-- only load the mobile lib "sap.m" and the "sap_bluecrystal" theme -->
+
+		<script>
+				sap.ui.localResources("barcodescannercc");
+				var app = new sap.m.App({initialPage:"idCreateComplaint1"});
+				var page = sap.ui.view({id:"idCreateComplaint1", viewName:"barcodescannercc.CreateComplaint", type:sap.ui.core.mvc.ViewType.XML});
+				app.addPage(page);
+				app.placeAt("content");
+		</script>
+	</head>
+	<body class="sapUiBody" role="application">
+		<div id="content"></div>
+	</body>
+</html>

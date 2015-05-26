@@ -1,0 +1,105 @@
+<core:View xmlns:core="sap.ui.core" xmlns:mvc="sap.ui.core.mvc"
+	xmlns="sap.m" xmlns:l="sap.ui.layout" xmlns:f="sap.ui.layout.form"
+	xmlns:commons="sap.ui.commons" controllerName="barcodescannercc.CreateComplaint"
+	xmlns:html="http://www.w3.org/1999/xhtml">
+	<Page title="Create Complaint">
+		<content>
+			<l:Grid defaultSpan="L12 M12 S12" width="auto">
+				<l:content>
+					<f:SimpleForm id="generaldataform" minWidth="1024"
+						maxContainerCols="2" editable="false" layout="ResponsiveGridLayout"
+						title="General Data" labelSpanL="3" labelSpanM="3"
+						emptySpanL="4" emptySpanM="4" columnsL="1" columnsM="1">
+						<f:content>
+							<Label text="Description" class="labelPadding" />
+							<TextArea></TextArea>
+							<Label text="Sold to Party" class="labelPadding" />
+							<Input id="soldtopartyId" showValueHelp="true" value="" valueHelpRequest="searchSoldToParty"></Input>
+							<Label text="Priority" class="labelPadding" />
+							<Select autoAdjustWidth="true">
+								<core:Item key="1" text="High" />
+								<core:Item key="2" text="Medium" />
+								<core:Item key="3" text="Low" />																
+							</Select>
+						</f:content>
+					</f:SimpleForm>
+					<f:SimpleForm id="datesForm" minWidth="1024"
+						maxContainerCols="2" editable="false" layout="ResponsiveGridLayout"
+						title="Dates" labelSpanL="3" labelSpanM="3"
+						emptySpanL="4" emptySpanM="4" columnsL="1" columnsM="1">
+						<f:content>
+							<Label text="Requested Start" class="labelPadding" />
+							<DateTimeInput id="requestedstartdateid" type="Date" />
+							<Label text="Request End" class="labelPadding" />
+							<DateTimeInput id="requestedenddateid" type="Date" />
+						</f:content>
+					</f:SimpleForm>
+				</l:content>
+			</l:Grid>
+			<ScrollContainer height="15rem" vertical="true">
+				<content>
+				<!-- HBox for Service order table -->
+					<Table id="idItemsTable" inset="false">
+							<headerToolbar>
+								<Toolbar>
+									<Label text="Items"></Label>
+									<ToolbarSpacer></ToolbarSpacer>
+									<Button icon="sap-icon://create" press="addItems" text="Add Items"/>
+								</Toolbar>
+								</headerToolbar>
+								<columns>
+									<Column width="12em">
+										<Text text="Product ID" />
+									</Column>
+									<Column minScreenWidth="Tablet" demandPopin="true">
+										<Text text="Quantity" />
+									</Column>
+									<Column minScreenWidth="Tablet" demandPopin="true">
+										<Text text="Unit" />
+									</Column>
+									<Column minScreenWidth="Tablet" demandPopin="true">
+										<Text text="Category"/>
+									</Column>									
+								</columns>
+								<items>		
+									<!-- <ColumnListItem>
+										<cells>
+											<ObjectIdentifier title="10007875" class="sapMTableContentMargin" />
+											<Text text="1" />
+											<Text text="EA" />
+											<Text text="CAT1" />											
+										</cells>
+										<customData>
+											<core:CustomData key="equipmentId" value="{EquipmentNumber}"></core:CustomData>
+											<core:CustomData key="customerShiptoParty" value="{CustomerID}"></core:CustomData>
+										</customData>
+									</ColumnListItem>	
+									<ColumnListItem>
+										<cells>
+											<ObjectIdentifier title="10007875" class="sapMTableContentMargin" />
+											<Text text="1" />
+											<Text text="EA" />
+											<Text text="CAT1" />											
+										</cells>
+										<customData>
+											<core:CustomData key="equipmentId" value="{EquipmentNumber}"></core:CustomData>
+											<core:CustomData key="customerShiptoParty" value="{CustomerID}"></core:CustomData>
+										</customData>
+									</ColumnListItem>		 -->				
+								</items>
+							</Table>								
+						</content>
+				</ScrollContainer>
+		</content>
+		<footer>
+			<Bar>
+				<contentLeft>
+					<Button id="saveButton" icon="sap-icon://save" press="saveServiceOrder" text="Save"></Button>
+				</contentLeft>	
+				<contentRight>
+					<Button id="cancelButton"  press="saveServiceOrder" text="Cancel"></Button>
+				</contentRight>	
+			</Bar>
+		</footer>
+	</Page>
+</core:View>
